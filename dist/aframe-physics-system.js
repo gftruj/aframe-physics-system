@@ -1,4 +1,4 @@
-(function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
+(function(){function r(e,n,t){function o(i,f){if(!n[i]){if(!e[i]){var c="function"==typeof require&&require;if(!f&&c)return c(i,!0);if(u)return u(i,!0);var a=new Error("Cannot find module '"+i+"'");throw a.code="MODULE_NOT_FOUND",a}var p=n[i]={exports:{}};e[i][0].call(p.exports,function(r){var n=e[i][1][r];return o(n||r)},p,p.exports,r,e,n,t)}return n[i].exports}for(var u="function"==typeof require&&require,i=0;i<t.length;i++)o(t[i]);return o}return r})()({1:[function(require,module,exports){
 var CANNON = require('cannon');
 
 require('./src/components/math');
@@ -7,6 +7,7 @@ require('./src/components/body/dynamic-body');
 require('./src/components/body/static-body');
 require('./src/components/shape/shape')
 require('./src/components/constraint');
+require('./src/components/spring');
 require('./src/system');
 
 module.exports = {
@@ -18,7 +19,7 @@ module.exports = {
 // Export CANNON.js.
 window.CANNON = window.CANNON || CANNON;
 
-},{"./src/components/body/body":63,"./src/components/body/dynamic-body":64,"./src/components/body/static-body":65,"./src/components/constraint":66,"./src/components/math":67,"./src/components/shape/shape":69,"./src/system":79,"cannon":4}],2:[function(require,module,exports){
+},{"./src/components/body/body":63,"./src/components/body/dynamic-body":64,"./src/components/body/static-body":65,"./src/components/constraint":66,"./src/components/math":67,"./src/components/shape/shape":69,"./src/components/spring":70,"./src/system":80,"cannon":4}],2:[function(require,module,exports){
 /**
  * CANNON.shape2mesh
  *
@@ -180,39 +181,52 @@ module.exports = CANNON.shape2mesh;
 
 },{"cannon":4}],3:[function(require,module,exports){
 module.exports={
-  "_from": "github:donmccurdy/cannon.js#v0.6.2-dev1",
+  "_args": [
+    [
+      "cannon@github:donmccurdy/cannon.js#v0.6.2-dev1",
+      "/home/piotr/devel/aframe-physics-system"
+    ]
+  ],
+  "_from": "donmccurdy/cannon.js#v0.6.2-dev1",
   "_id": "cannon@0.6.2",
-  "_inBundle": false,
-  "_integrity": "sha1-kuhwtr7Hd8jqU3mcndOx2tmf0RU=",
+  "_inCache": true,
+  "_installable": true,
   "_location": "/cannon",
   "_phantomChildren": {},
   "_requested": {
-    "type": "git",
-    "raw": "cannon@github:donmccurdy/cannon.js#v0.6.2-dev1",
+    "hosted": {
+      "directUrl": "https://raw.githubusercontent.com/donmccurdy/cannon.js/v0.6.2-dev1/package.json",
+      "gitUrl": "git://github.com/donmccurdy/cannon.js.git#v0.6.2-dev1",
+      "httpsUrl": "git+https://github.com/donmccurdy/cannon.js.git#v0.6.2-dev1",
+      "shortcut": "github:donmccurdy/cannon.js#v0.6.2-dev1",
+      "ssh": "git@github.com:donmccurdy/cannon.js.git#v0.6.2-dev1",
+      "sshUrl": "git+ssh://git@github.com/donmccurdy/cannon.js.git#v0.6.2-dev1",
+      "type": "github"
+    },
     "name": "cannon",
-    "escapedName": "cannon",
+    "raw": "cannon@github:donmccurdy/cannon.js#v0.6.2-dev1",
     "rawSpec": "github:donmccurdy/cannon.js#v0.6.2-dev1",
-    "saveSpec": "github:donmccurdy/cannon.js#v0.6.2-dev1",
-    "fetchSpec": null,
-    "gitCommittish": "v0.6.2-dev1"
+    "scope": null,
+    "spec": "github:donmccurdy/cannon.js#v0.6.2-dev1",
+    "type": "hosted"
   },
   "_requiredBy": [
     "/"
   ],
-  "_resolved": "github:donmccurdy/cannon.js#022e8ba53fa83abf0ad8a0e4fd08623123838a17",
+  "_resolved": "git://github.com/donmccurdy/cannon.js.git#022e8ba53fa83abf0ad8a0e4fd08623123838a17",
+  "_shasum": "9787e70e5bc259efff2e08553359d0feec887a49",
+  "_shrinkwrap": null,
   "_spec": "cannon@github:donmccurdy/cannon.js#v0.6.2-dev1",
-  "_where": "/Users/donmccurdy/Documents/Projects/aframe-physics-system",
+  "_where": "/home/piotr/devel/aframe-physics-system",
   "author": {
-    "name": "Stefan Hedman",
     "email": "schteppe@gmail.com",
+    "name": "Stefan Hedman",
     "url": "http://steffe.se"
   },
   "bugs": {
     "url": "https://github.com/schteppe/cannon.js/issues"
   },
-  "bundleDependencies": false,
   "dependencies": {},
-  "deprecated": false,
   "description": "A lightweight 3D physics engine written in JavaScript.",
   "devDependencies": {
     "browserify": "*",
@@ -230,13 +244,14 @@ module.exports={
   "engines": {
     "node": "*"
   },
+  "gitHead": "022e8ba53fa83abf0ad8a0e4fd08623123838a17",
   "homepage": "https://github.com/schteppe/cannon.js",
   "keywords": [
-    "cannon.js",
+    "3d",
     "cannon",
-    "physics",
+    "cannon.js",
     "engine",
-    "3d"
+    "physics"
   ],
   "licenses": [
     {
@@ -245,6 +260,9 @@ module.exports={
   ],
   "main": "./src/Cannon.js",
   "name": "cannon",
+  "optionalDependencies": {},
+  "readme": "# cannon.js\n\n### Lightweight 3D physics for the web\nInspired by [three.js](https://github.com/mrdoob/three.js) and [ammo.js](https://github.com/kripken/ammo.js), and driven by the fact that the web lacks a physics engine, here comes cannon.js.\nThe rigid body physics engine includes simple collision detection, various body shapes, contacts, friction and constraints.\n\n[Demos](http://schteppe.github.com/cannon.js) - [Documentation](http://schteppe.github.com/cannon.js/docs) - [Rendering hints](https://github.com/schteppe/cannon.js/tree/master/examples) - [NPM package](https://npmjs.org/package/cannon) - [CDN](https://cdnjs.com/libraries/cannon.js)\n\n### Browser install\n\nJust include [cannon.js](https://github.com/schteppe/cannon.js/releases/download/v0.6.2/cannon.js) or [cannon.min.js](https://github.com/schteppe/cannon.js/releases/download/v0.6.2/cannon.min.js) in your html and you're done:\n\n```html\n<script src=\"cannon.min.js\"></script>\n```\n\n### Node.js install\n\nInstall the cannon package via NPM:\n\n```bash\nnpm install --save cannon\n```\n\nAlternatively, point to the Github repo directly to get the very latest version:\n\n```bash\nnpm install --save schteppe/cannon.js\n```\n\n### Example\n\nThe sample code below creates a sphere on a plane, steps the simulation, and prints the sphere simulation to the console. Note that Cannon.js uses [SI units](http://en.wikipedia.org/wiki/International_System_of_Units) (metre, kilogram, second, etc.).\n\n```javascript\n// Setup our world\nvar world = new CANNON.World();\nworld.gravity.set(0, 0, -9.82); // m/s²\n\n// Create a sphere\nvar radius = 1; // m\nvar sphereBody = new CANNON.Body({\n   mass: 5, // kg\n   position: new CANNON.Vec3(0, 0, 10), // m\n   shape: new CANNON.Sphere(radius)\n});\nworld.addBody(sphereBody);\n\n// Create a plane\nvar groundBody = new CANNON.Body({\n    mass: 0 // mass == 0 makes the body static\n});\nvar groundShape = new CANNON.Plane();\ngroundBody.addShape(groundShape);\nworld.addBody(groundBody);\n\nvar fixedTimeStep = 1.0 / 60.0; // seconds\nvar maxSubSteps = 3;\n\n// Start the simulation loop\nvar lastTime;\n(function simloop(time){\n  requestAnimationFrame(simloop);\n  if(lastTime !== undefined){\n     var dt = (time - lastTime) / 1000;\n     world.step(fixedTimeStep, dt, maxSubSteps);\n  }\n  console.log(\"Sphere z position: \" + sphereBody.position.z);\n  lastTime = time;\n})();\n```\n\nIf you want to know how to use cannon.js with a rendering engine, for example Three.js, see the [Examples](examples).\n\n### Features\n* Rigid body dynamics\n* Discrete collision detection\n* Contacts, friction and restitution\n* Constraints\n   * PointToPoint (a.k.a. ball/socket joint)\n   * Distance\n   * Hinge (with optional motor)\n   * Lock\n   * ConeTwist\n* Gauss-Seidel constraint solver and an island split algorithm\n* Collision filters\n* Body sleeping\n* Experimental SPH / fluid support\n* Various shapes and collision algorithms (see table below)\n\n|             | [Sphere](http://schteppe.github.io/cannon.js/docs/classes/Sphere.html) | [Plane](http://schteppe.github.io/cannon.js/docs/classes/Plane.html) | [Box](http://schteppe.github.io/cannon.js/docs/classes/Box.html) | [Convex](http://schteppe.github.io/cannon.js/docs/classes/ConvexPolyhedron.html) | [Particle](http://schteppe.github.io/cannon.js/docs/classes/Particle.html) | [Heightfield](http://schteppe.github.io/cannon.js/docs/classes/Heightfield.html) | [Trimesh](http://schteppe.github.io/cannon.js/docs/classes/Trimesh.html) |\n| :-----------|:------:|:-----:|:---:|:------:|:--------:|:-----------:|:-------:|\n| Sphere      | Yes    | Yes   | Yes | Yes    | Yes      | Yes         | Yes     |\n| Plane       | -      | -     | Yes | Yes    | Yes      | -           | Yes     |\n| Box         | -      | -     | Yes | Yes    | Yes      | Yes         | (todo)  |\n| Cylinder    | -      | -     | Yes | Yes    | Yes      | Yes         | (todo)  |\n| Convex      | -      | -     | -   | Yes    | Yes      | Yes         | (todo)  |\n| Particle    | -      | -     | -   | -      | -        | (todo)      | (todo)  |\n| Heightfield | -      | -     | -   | -      | -        | -           | (todo)  |\n| Trimesh     | -      | -     | -   | -      | -        | -           | -       |\n\n### Todo\nThe simpler todos are marked with ```@todo``` in the code. Github Issues can and should also be used for todos.\n\n### Help\nCreate an [issue](https://github.com/schteppe/cannon.js/issues) if you need help.\n",
+  "readmeFilename": "README.markdown",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/schteppe/cannon.js.git"
@@ -14772,10 +14790,14 @@ module.exports = CANNON.mesh2shape = mesh2shape;
  * @return {CANNON.Shape}
  */
 function createBoundingBoxShape (object) {
-  var shape, localPosition, worldPosition,
+  var shape, localPosition,
       box = new THREE.Box3();
 
-  box.setFromObject(object);
+  var clone = object.clone();
+  clone.quaternion.set(0, 0, 0, 1);
+  clone.updateMatrixWorld();
+
+  box.setFromObject(clone);
 
   if (!isFinite(box.min.lengthSq())) return null;
 
@@ -14785,10 +14807,7 @@ function createBoundingBoxShape (object) {
     (box.max.z - box.min.z) / 2
   ));
 
-  object.updateMatrixWorld();
-  worldPosition = new THREE.Vector3();
-  worldPosition.setFromMatrixPosition(object.matrixWorld);
-  localPosition = box.translate(worldPosition.negate()).getCenter();
+  localPosition = box.translate(clone.position.negate()).getCenter(new THREE.Vector3());
   if (localPosition.lengthSq()) {
     shape.offset = localPosition;
   }
@@ -15528,7 +15547,7 @@ module.exports = function (fn, options) {
             wcache[key] = key;
         }
         sources[wkey] = [
-            Function(['require','module','exports'], '(' + fn + ')(self)'),
+            'function(require,module,exports){' + fn + '(self); }',
             wcache
         ];
     }
@@ -15536,12 +15555,11 @@ module.exports = function (fn, options) {
 
     var scache = {}; scache[wkey] = wkey;
     sources[skey] = [
-        Function(['require'], (
-            // try to call default if defined to also support babel esmodule
-            // exports
+        'function(require,module,exports){' +
+            // try to call default if defined to also support babel esmodule exports
             'var f = require(' + stringify(wkey) + ');' +
-            '(f.default ? f.default : f)(self);'
-        )),
+            '(f.default ? f.default : f)(self);' +
+        '}',
         scache
     ];
 
@@ -16287,6 +16305,122 @@ module.exports.definition = Shape;
 module.exports.Component = AFRAME.registerComponent('shape', Shape);
 
 },{"cannon":4}],70:[function(require,module,exports){
+var CANNON = require('cannon');
+
+
+module.exports = AFRAME.registerComponent("spring", {
+
+  multiple: true,
+
+  schema: {
+
+    // Target (other) body for the constraint.
+    target: {type: 'selector'},
+
+    // Lenght of the spring, when no force acts upon it
+    restLength: {default: 1, min: 0},
+
+    // how much will the spring suppress the force
+    stiffness: {default: 100, min: 0, max: 0},
+
+    // the stretch factor of the spring
+    damping: {default: 1, min: 0, max: 1},
+  },
+
+  init: function() {
+    this.system = this.el.sceneEl.systems.physics
+    this.world = this.system.driver.world
+    this.spring = /* {CANNON.Constraint} */ null
+  },
+
+  update: function(oldData, newData) {
+    var el = this.el,
+    data = this.data;
+    
+    // wait until the CANNON body is created and attached
+    if (!el.body || !data.target.body) {
+      (el.body ? data.target : el).addEventListener('body-loaded', this.update.bind(this, {}));
+      return;
+    }
+
+    // create the spring if necessary (nonexistent)
+    this.createSpring()
+    // apply new schema to the spring
+    this.updateSpring(oldData)
+  },
+
+  updateSpring: function(oldData) {
+    if (!this.spring) {
+      console.warn("Component attempted to change spring before its created. No changes made.");
+      return;
+    } 
+    var data = this.data,
+    spring = this.spring
+    if (!data.target) {
+      console.warn("Invalid target specified. No changes made.");
+      return;
+    }
+    // Cycle through the schema and check if an attribute has changed.
+    // if so, apply it to the spring
+    Object.keys(data).forEach(function(attr) {
+      if (data[attr] !== oldData[attr]) {
+        if (attr === "target") {
+          // special case for the target selector
+          spring.bodyB = data.target.body
+          return
+        }
+        spring[attr] = data[attr]
+      }
+    })
+  },
+
+  createSpring: function() {
+    // no need to create a new spring
+    if (this.spring) return
+    var data = this.data
+    if (!this.dataIsValid(data)) return;
+    this.spring = new CANNON.Spring(this.el.body, data.target.body, {
+      restLength: data.restLength,
+      stiffness: data.stiffness,
+      damping: data.damping,
+    });
+    // Compute the force after each step
+    this.world.addEventListener("postStep", this.updateSpringForce.bind(this, {}));
+  },
+
+  // If the spring is valid, update the force each tick the physics are calculated
+  updateSpringForce: function() {
+    if (this.spring) {
+       this.spring.applyForce()
+    }
+  },
+
+  // as for now only check if there is another body to attach
+  dataIsValid: function(data) {
+    if (!data.target) return false
+    return true
+  },
+
+  // resume updating the force when component upon calling play()
+  play: function() {
+    this.world.addEventListener("postStep", this.updateSpringForce.bind(this, {}));
+  },
+
+  // stop updating the force when component upon calling stop()
+  pause: function() {
+    this.world.removeEventListener("postStep", this.updateSpringForce.bind(this, {}));
+  },
+
+  //remove the event listener + delete the spring
+  remove: function() {
+    this.world.removeEventListener("postStep", this.updateSpringForce.bind(this, {}));
+    if (this.spring)
+      delete this.spring
+      this.spring = null
+  }
+})
+
+},{"cannon":4}],71:[function(require,module,exports){
 module.exports = {
   GRAVITY: -9.8,
   MAX_INTERVAL: 4 / 60,
@@ -16301,7 +16435,7 @@ module.exports = {
   }
 };
 
-},{}],71:[function(require,module,exports){
+},{}],72:[function(require,module,exports){
 var Driver = require('./driver');
 
 function AmmoDriver () {
@@ -16313,7 +16447,7 @@ AmmoDriver.prototype.constructor = AmmoDriver;
 
 module.exports = AmmoDriver;
 
-},{"./driver":72}],72:[function(require,module,exports){
+},{"./driver":73}],73:[function(require,module,exports){
 /**
  * Driver - defines limited API to local and remote physics controllers.
  */
@@ -16391,7 +16525,7 @@ function abstractMethod () {
   throw new Error('Method not implemented.');
 }
 
-},{}],73:[function(require,module,exports){
+},{}],74:[function(require,module,exports){
 module.exports = {
   INIT: 'init',
   STEP: 'step',
@@ -16411,7 +16545,7 @@ module.exports = {
   REMOVE_CONSTRAINT: 'remove-constraint'
 };
 
-},{}],74:[function(require,module,exports){
+},{}],75:[function(require,module,exports){
 var CANNON = require('cannon'),
     Driver = require('./driver');
 
@@ -16532,7 +16666,7 @@ LocalDriver.prototype.getContacts = function () {
   return this.world.contacts;
 };
 
-},{"./driver":72,"cannon":4}],75:[function(require,module,exports){
+},{"./driver":73,"cannon":4}],76:[function(require,module,exports){
 var Driver = require('./driver');
 
 function NetworkDriver () {
@@ -16544,7 +16678,7 @@ NetworkDriver.prototype.constructor = NetworkDriver;
 
 module.exports = NetworkDriver;
 
-},{"./driver":72}],76:[function(require,module,exports){
+},{"./driver":73}],77:[function(require,module,exports){
 /**
  * Stub version of webworkify, for debugging code outside of a webworker.
  */
@@ -16587,7 +16721,7 @@ EventTarget.prototype.postMessage = function (msg) {
   this.target.dispatchEvent('message', {data: msg});
 };
 
-},{}],77:[function(require,module,exports){
+},{}],78:[function(require,module,exports){
 /* global performance */
 
 var webworkify = require('webworkify'),
@@ -16823,7 +16957,7 @@ WorkerDriver.prototype.getContacts = function () {
   });
 };
 
-},{"../utils/protocol":81,"./driver":72,"./event":73,"./webworkify-debug":76,"./worker":78,"webworkify":62}],78:[function(require,module,exports){
+},{"../utils/protocol":82,"./driver":73,"./event":74,"./webworkify-debug":77,"./worker":79,"webworkify":62}],79:[function(require,module,exports){
 var Event = require('./event'),
     LocalDriver = require('./local-driver'),
     AmmoDriver = require('./ammo-driver'),
@@ -16917,7 +17051,7 @@ module.exports = function (self) {
   }
 };
 
-},{"../utils/protocol":81,"./ammo-driver":71,"./event":73,"./local-driver":74}],79:[function(require,module,exports){
+},{"../utils/protocol":82,"./ammo-driver":72,"./event":74,"./local-driver":75}],80:[function(require,module,exports){
 var CANNON = require('cannon'),
     CONSTANTS = require('./constants'),
     C_GRAV = CONSTANTS.GRAVITY,
@@ -17162,7 +17296,7 @@ module.exports = AFRAME.registerSystem('physics', {
   }
 });
 
-},{"./constants":70,"./drivers/ammo-driver":71,"./drivers/local-driver":74,"./drivers/network-driver":75,"./drivers/worker-driver":77,"cannon":4}],80:[function(require,module,exports){
+},{"./constants":71,"./drivers/ammo-driver":72,"./drivers/local-driver":75,"./drivers/network-driver":76,"./drivers/worker-driver":78,"cannon":4}],81:[function(require,module,exports){
 module.exports.slerp = function ( a, b, t ) {
   if ( t <= 0 ) return a;
   if ( t >= 1 ) return b;
@@ -17227,7 +17361,7 @@ module.exports.slerp = function ( a, b, t ) {
 
 };
 
-},{}],81:[function(require,module,exports){
+},{}],82:[function(require,module,exports){
 var CANNON = require('cannon');
 var mathUtils = require('./math');
 
@@ -17554,4 +17688,4 @@ function deserializeQuaternion (message) {
   return new CANNON.Quaternion(message[0], message[1], message[2], message[3]);
 }
 
-},{"./math":80,"cannon":4}]},{},[1]);
+},{"./math":81,"cannon":4}]},{},[1]);
