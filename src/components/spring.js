@@ -5,7 +5,6 @@ module.exports = AFRAME.registerComponent("spring", {
   multiple: true,
 
   schema: {
-
     // Target (other) body for the constraint.
     target: {type: 'selector'},
 
@@ -17,19 +16,24 @@ module.exports = AFRAME.registerComponent("spring", {
 
     // the stretch factor of the spring
     damping: {default: 1, min: 0, max: 1},
+
+    // offsets
+    localAnchorA: {type: 'vec3', default: {x: 0, y: 0, z: 0}},
+    localAnchorB: {type: 'vec3', default: {x: 0, y: 0, z: 0}},
+
   },
 
   init: function() {
     this.system = this.el.sceneEl.systems.physics
     this.world = this.system.driver.world
-    this.spring = /* {CANNON.Constraint} */ null
+    this.spring = /* {CANNON.Spring} */ null
   },
 
   update: function(oldData, newData) {
     var el = this.el,
     data = this.data;
     
-    // wait until the CANNON body is created and attached
+    // wait until the CANNON bodies is created and attached
     if (!el.body || !data.target.body) {
       (el.body ? data.target : el).addEventListener('body-loaded', this.update.bind(this, {}));
       return;
