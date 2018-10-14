@@ -16288,7 +16288,7 @@ module.exports.Component = AFRAME.registerComponent('shape', Shape);
 },{"cannon":4}],70:[function(require,module,exports){
 var CANNON = require('cannon');
 
-module.exports = AFRAME.registerComponent("spring", {
+module.exports = AFRAME.registerComponent('spring', {
 
   multiple: true,
 
